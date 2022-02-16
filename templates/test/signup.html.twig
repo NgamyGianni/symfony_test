@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Form - créer{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; text-align: center;}
+    .example-wrapper code { background: #000000; padding: 2px 6px; }
+</style>
+
+
+<div class="example-wrapper">
+    Créez votre profil !
+</div>
+
+{{ form_start(form) }}
+{{form_row(form.username, {'label': "Nom d'utilisateur", 'attr': {'placeholder': 'exemple'}})}}
+{{form_row(form.email, {'label': "Email", 'attr': {'placeholder': 'exemple@email.com'}})}}
+{{form_row(form.password, {'label': "Mot de passe",'attr': {'placeholder': '*********'}})}}
+{{form_row(form.role, {'label': "Rôle",'attr': {'placeholder': 'User'}})}}
+<button type="submit" class="btn btn-success">Créer</button>
+{{ form_end(form) }}
+
+{% endblock %}

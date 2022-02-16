@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Form - créer{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; text-align: center;}
+    .example-wrapper code { background: #000000; padding: 2px 6px; }
+</style>
+
+
+<div class="example-wrapper">
+    Créez votre article !
+</div>
+
+{{ form_start(form) }}
+{{form_row(form.num)}}
+{{form_row(form.titre)}}
+{{form_row(form.resume)}}
+{{form_row(form.principal)}}
+{{form_row(form.contenu)}}
+{{form_row(form.acte)}}
+{{ form_end(form) }}
+
+
+{% endblock %}
