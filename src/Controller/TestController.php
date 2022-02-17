@@ -162,4 +162,24 @@ class TestController extends AbstractController
         return $this->render('test/signin.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/logout", name="userLogout"), methods={"GET"})
+     */
+    public function logout(): Response
+    {
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/admin", name="adminPage"), methods={"GET"})
+     */
+    public function admin(): Response
+    {
+
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        return $this->render('test/admin.html.twig');
+    }
 }

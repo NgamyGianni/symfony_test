@@ -10,7 +10,7 @@
 
 
 <div class="example-wrapper">
-    <h1>Bienvenue {{ app.user != null ? app.user.username:"" }} 👋 !</h1>
+    <h1>Bienvenue {{ app.user != null ? dump(app.user.role):"" }} 👋 !</h1>
     Découvrez nos articles !
 </div>
 
