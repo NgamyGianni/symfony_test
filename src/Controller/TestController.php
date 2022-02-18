@@ -174,12 +174,16 @@ class TestController extends AbstractController
     /**
      * @Route("/admin", name="adminPage"), methods={"GET"})
      */
-    public function admin(): Response
+    public function admin(ManagerRegistry $doctrine): Response
     {
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-        return $this->render('test/admin.html.twig');
+        $users = $doctrine->getRepository(User :: class)->findAll();
+
+        return $this->render('test/admin.html.twig', [
+            'users' => $users
+        ]);
     }
 }

@@ -13,4 +13,27 @@
     <h1>Bienvenue Admin 👋 !</h1>
 </div>
 
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>email</th>
+            <th>username</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.email }}</td>
+                <td>{{ user.username }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+
 {% endblock %}
